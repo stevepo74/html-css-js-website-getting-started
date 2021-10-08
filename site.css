@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+}
+/*This is using the star selector. It says every single element on the page sets the rule(s). In this case, all elements get zero margin.
+
+This is good because now we won't be fighting with any default values, and so elements will only get the margin that we set.*/
+
+html, body {
+    height: 100%;
+}
+/*While this doesn't visually make a big change within the browser, this helps other styles to be able to calculate their position on the page correctly.*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #999;
+}
+
+p {
+    margin: 0.5em 0 0.5em 0;
+}
+
+header {
+    display: block;
+    position: fixed; /* keeps nav links in place even when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #a493c0;
+    padding: 10px;
+}
+
+nav a:visited,
+nav a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav > ul {
+    display: inline;
+    padding: 0; /* I guess this takes the bullets off the list */
+}
+
+nav > ul > li {
+    display: inline-block; /* stacks elements side by side */
+    list-style: none; /* tells browser to not interpret as list item */
+    margin: 0 5px 0 5px;
+}
+
+main {
+    display: block;
+    background-image: url("images/background.png"); /* background image is already set up to repeat itself */
+    padding-top: 3em;
+    padding-bottom: 3em; /* just another way to write a style rule of adding padding. Padding added to top and bottom to push away from the top nav and bottom nav */
+    min-height: 85%; /* necessary in order to make sure the bottom navigation shows up at the bottom of the page */
+}
+
+footer {
+    padding: 15px;
+}
+
+aside, article {
+    padding: 2em; /* pixels are a fixed value and ems are a proportional value. with ems the larger the font size, the more padding there will be around this  */
+}
+
+aside {
+    text-align: center; /* to center an image or text within a container, this is the rule that you use */
+}
+
+article {
+    width: 75%; /* makes sure our content doesn't stretch too far across the page */
+}
+
+.columns {
+    display: flex;
+}
+
+@media only screen and (min-width: 768px) {
+
+    main {
+        display: flex; /* because it's a two-column layout and flex makes creating those layouts simple */
+    }
+
+    aside {
+        margin-left: 2%;
+    }
+
+    .columns-desktop {
+        display: flex;
+    }
+}
+
+/* Pies */
+
+.pie {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    border: solid 1px #ccc;
+}
+
+.pie img {
+    width: 100%; /* this creates only a slight visual change, but now the images take up the max amount of horizontal space within the container */
+}
+
+.pie .title {
+    font-weight: bold;
+}
+
+.pie .columns {
+    width: 100%;
+} /* this does not make a visual change alone, but once the next style rule is added, you can see why this width is important because now what you can do is tell the price to be aligned to the right */
+
+.pie .price {
+    text-align: right;
+}
+
+.pie .columns div {
+    width: 50%;
+}
+
+.pie button {
+    background-color: #f6aeae;
+    padding: 10px;
+    border: solid 1px #f6aeae;
+    border-radius: 3px;
+    color: #fff;
+}
